@@ -1,0 +1,30 @@
+@using MvcBlog.Models 
+@model IEnumerable<Article>
+
+<h2>Articles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Published</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.StartDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ArticleId">View</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ArticleId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ArticleId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Create New Article</a>

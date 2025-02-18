@@ -1,0 +1,12 @@
+@model Article
+
+<h2>Article Details</h2>
+
+<div>
+    <h3>@Model.Title</h3>
+    <p><strong>Published:</strong> @Model.StartDate.ToShortDateString()</p>
+    <p><strong>Content:</strong> @Model.Body</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.ArticleId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>
